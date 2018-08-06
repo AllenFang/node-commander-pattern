@@ -1,0 +1,41 @@
+version: '3'
+
+networks:
+  nodecommandpattern:
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    networks:
+      - nodecommandpattern
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./postgres.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgres.sh:/docker-entrypoint-initdb.d/init.sh
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    restart: always
+    networks:
+      - nodecommandpattern
+    ports:
+      - "8080:8080"
+
+  workspace:
+    build:
+      context: .
+    container_name: workspace
+    networks:
+      - nodecommandpattern
+    volumes:
+      - ${PWD}:/root/workspace
+    ports:
+      - "3001:3001"
+    links:
+      - postgres

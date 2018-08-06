@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "outDir": "dist",
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": true,
+    "alwaysStrict": true,
+    "allowUnreachableCode": false,
+    "inlineSourceMap": true,
+    "rootDir": "./src",
+    "lib": [
+      "es2015",
+      "es6",
+      "es7"
+    ],
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "importHelpers": true,
+    "strict": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "removeComments": true,
+    "types": ["reflect-metadata"]
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
